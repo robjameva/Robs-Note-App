@@ -1,11 +1,20 @@
 const path = require('path');
 const router = require('express').Router();
 const { notes } = require('../../db/db.json')
-const { createNewNote, updateDb, validateNote } = require('../../lib/notes')
+const { createNewNote, updateDb, validateNote, findById } = require('../../lib/notes')
 const { v4: uuidv4 } = require('uuid')
 
 router.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../../db/db.json'));
+});
+
+router.get('/notes/:id', (req, res) => {
+    const result = findById(req.params.id, notes)
+    if (result) {
+        res.json(result)
+    } else {
+        res.sendStatus(404)
+    }
 });
 
 router.post('/notes', (req, res) => {
