@@ -13,6 +13,7 @@ A simple note taking app that uses express.js to serve the webpage
 * [Credits](#credits)
 * [Questions](#Questions)
 
+![home page screenshot](img/Screen_Shot.png?raw=true)
 
 ## Backend Technology Used
 * Node.js
